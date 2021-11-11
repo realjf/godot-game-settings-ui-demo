@@ -1,0 +1,176 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://OptionControl.gd" type="Script" id=1]
+
+[node name="OptionControl" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -391.0
+margin_top = -193.5
+margin_right = 391.0
+margin_bottom = 193.5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="LB_Music" type="Label" parent="."]
+margin_left = 472.881
+margin_top = 105.714
+margin_right = 518.881
+margin_bottom = 119.714
+size_flags_vertical = 1
+text = "Music :"
+
+[node name="LB_Resolution" type="Label" parent="."]
+margin_left = 68.3635
+margin_top = 72.2363
+margin_right = 145.363
+margin_bottom = 87.2363
+size_flags_vertical = 1
+text = "Resolution :"
+
+[node name="LB_General" type="Label" parent="."]
+margin_left = 462.498
+margin_top = 72.6783
+margin_right = 520.498
+margin_bottom = 86.6783
+size_flags_vertical = 1
+text = "General :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LB_SE" type="Label" parent="."]
+margin_left = 426.631
+margin_top = 136.862
+margin_right = 519.631
+margin_bottom = 150.862
+size_flags_vertical = 1
+text = "Sound Effects :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LB_Video" type="Label" parent="."]
+margin_left = 185.745
+margin_top = 21.2363
+margin_right = 229.745
+margin_bottom = 37.2363
+size_flags_vertical = 1
+text = "Video"
+
+[node name="CB_FS" type="CheckBox" parent="LB_Video"]
+margin_left = -94.6435
+margin_top = 79.0208
+margin_right = 125.356
+margin_bottom = 107.021
+text = "Fullscreen"
+align = 1
+
+[node name="Option_Resolution" type="OptionButton" parent="LB_Video"]
+margin_left = -16.818
+margin_top = 47.2182
+margin_right = 166.182
+margin_bottom = 72.2182
+toggle_mode = false
+text = "640x480"
+align = 1
+items = [ "640x480", null, false, 0, null, "800x480", null, false, 1, null, "1024x768", null, false, 2, null, "1200x900", null, false, 3, null, "1280x1024", null, false, 4, null, "1440x900", null, false, 5, null, "1680x1050", null, false, 6, null, "1600x900", null, false, 7, null, "1600x1200", null, false, 8, null, "1366x768", null, false, 9, null, "1368x768", null, false, 10, null, "1920x1200", null, false, 11, null, "2560x1600", null, false, 12, null, "1280x720", null, false, 13, null, "1920x1080", null, false, 14, null, "2560x1440", null, false, 15, null, "2560x1600", null, false, 16, null ]
+selected = 0
+
+[node name="CB_Vsync" type="CheckBox" parent="LB_Video"]
+margin_left = -93.8617
+margin_top = 112.124
+margin_right = 131.138
+margin_bottom = 138.124
+text = "Vsync"
+align = 1
+
+[node name="LB_Audio" type="Label" parent="."]
+margin_left = 567.564
+margin_top = 25.1272
+margin_right = 606.564
+margin_bottom = 41.1272
+size_flags_vertical = 1
+text = "Audio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HS_General" type="HSlider" parent="LB_Audio"]
+margin_left = -29.0
+margin_top = 44.1684
+margin_right = 159.0
+margin_bottom = 60.1684
+size_flags_vertical = 1
+
+[node name="HS_Music" type="HSlider" parent="LB_Audio"]
+margin_left = -29.0
+margin_top = 78.1684
+margin_right = 158.0
+margin_bottom = 94.1684
+size_flags_vertical = 1
+
+[node name="HS_SE" type="HSlider" parent="LB_Audio"]
+margin_left = -29.0
+margin_top = 111.0
+margin_right = 158.0
+margin_bottom = 127.0
+size_flags_vertical = 1
+
+[node name="CB_Mute" type="CheckBox" parent="LB_Audio"]
+margin_left = -76.0
+margin_top = 146.0
+margin_right = 112.0
+margin_bottom = 170.0
+text = "Mute"
+align = 1
+
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 398.0
+margin_top = 18.0
+margin_right = 402.0
+margin_bottom = 365.0
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_left = 419.891
+margin_top = 46.6727
+margin_right = 740.891
+margin_bottom = 52.6727
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+margin_left = 48.1091
+margin_top = 46.5817
+margin_right = 376.109
+margin_bottom = 50.5817
+
+[node name="ExitButton" type="Button" parent="."]
+margin_left = 56.0
+margin_top = 350.0
+margin_right = 144.0
+margin_bottom = 372.0
+text = "Exit"
+
+[node name="SaveButton" type="Button" parent="."]
+margin_left = 640.0
+margin_top = 350.0
+margin_right = 728.0
+margin_bottom = 372.0
+text = "Apply"
+
+[connection signal="toggled" from="LB_Video/CB_FS" to="." method="_on_CB_FS_toggled"]
+[connection signal="item_selected" from="LB_Video/Option_Resolution" to="." method="_on_Option_Resolution_item_selected"]
+[connection signal="toggled" from="LB_Video/CB_Vsync" to="." method="_on_CB_Vsync_toggled"]
+[connection signal="value_changed" from="LB_Audio/HS_General" to="." method="_on_HS_General_value_changed"]
+[connection signal="value_changed" from="LB_Audio/HS_Music" to="." method="_on_HS_Music_value_changed"]
+[connection signal="value_changed" from="LB_Audio/HS_SE" to="." method="_on_HS_SE_value_changed"]
+[connection signal="toggled" from="LB_Audio/CB_Mute" to="." method="_on_CB_Mute_toggled"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_SaveButton_pressed"]
